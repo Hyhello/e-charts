@@ -14,7 +14,8 @@
 		"build": "cross-env NODE_ENV=production rollup -c build/rollup.prod.js",
 		"dev": "rollup -c build/rollup.dev.js --watch",
 		"lint-staged": "pretty-quick --staged",
-		"test": "jest --coverage"
+		"test": "jest --coverage",
+		"deploy": "npm publish"
 	},
 	"keywords": [
 		"h-echarts",
