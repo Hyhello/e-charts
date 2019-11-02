@@ -23,6 +23,13 @@
 	],
 	"author": "Hyhello",
 	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Hyhello/e-charts/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Hyhello/e-charts.git"
+	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "npm run lint-staged",
