@@ -2,10 +2,10 @@
 	"name": "h-echarts",
 	"version": "0.0.1",
 	"description": "基于vue的echarts组件",
-	"main": "dist/hecharts.min.js",
+	"main": "lib/hecharts.min.js",
 	"files": [
 		"src",
-		"dist",
+		"lib",
 		"yarn.lock"
 	],
 	"scripts": {

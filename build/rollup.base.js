@@ -11,6 +11,7 @@ const postcss = require('rollup-plugin-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
+const config = require('../config');
 const pkg = require('../package.json');
 const { toCamel } = require('./utils');
 const aliass = require('./alias.js');
@@ -27,11 +28,11 @@ const banner =
 	' * Released under the MIT License.\n' +
 	' */';
 
-const config = {
+const baseConfig = {
 	input: 'src/index.js',
 	output: [
 		{
-			format: 'cjs',
+			format: 'esm',
 			name: name,
 			file: pkg.main,
 			sourcemap: true,
@@ -59,7 +60,7 @@ const config = {
 			plugins: [autoprefixer, cssnano],
 			sourceMap: true,
 			extensions: ['.sass', '.scss', '.css'],
-			extract: 'dist/hecharts.min.css' // 输出路径
+			extract: `${config.buildDir}/hecharts.min.css` // 输出路径
 		}),
 		vue(),
 		json({
@@ -72,4 +73,4 @@ const config = {
 	]
 };
 
-module.exports = config;
+module.exports = baseConfig;
