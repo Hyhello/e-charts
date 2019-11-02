@@ -1,6 +1,6 @@
 {
 	"name": "h-echarts",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "基于vue的echarts组件",
 	"main": "lib/hecharts.min.js",
 	"files": [

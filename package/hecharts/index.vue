@@ -36,7 +36,7 @@
 import _ from 'lodash';
 import echarts from 'echarts';
 import { warn } from '@/utils/debug';
-import mapList from '@/map/mapList.json';
+import mapList from './mapList.json';
 import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
 
 const oneOf = (target, list) => {
@@ -225,7 +225,7 @@ export default {
 					json = reslove(json, true);
 				}
 			} else {
-				json = require(`@/map/json/${json}.json`);
+				json = require(`../map/json/${json}.json`);
 			}
 			echarts.registerMap(name, json);
 		}
