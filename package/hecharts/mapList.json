@@ -142,5 +142,9 @@
 	{
 		"label": "浙江",
 		"value": "zhejiang"
+	},
+	{
+		"label": "城市",
+		"value": "china-cities"
 	}
 ]

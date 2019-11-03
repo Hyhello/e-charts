@@ -1,3 +1,3 @@
-# progress
+# h-echarts
 
-基于 canvas 的进度条
+基于 echarts, vue 的图表

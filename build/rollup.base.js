@@ -6,8 +6,7 @@ const replace = require('rollup-plugin-replace');
 const { eslint } = require('rollup-plugin-eslint');
 const vue = require('rollup-plugin-vue');
 const json = require('rollup-plugin-json');
-const sass = require('node-sass');
-const postcss = require('rollup-plugin-postcss');
+// const postcss = require('rollup-plugin-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
@@ -32,14 +31,14 @@ const baseConfig = {
 	input: 'src/index.js',
 	output: [
 		{
-			format: 'esm',
+			format: 'umd',
 			name: name,
 			file: pkg.main,
 			sourcemap: true,
 			banner: banner
 		}
 	],
-	external: ['echarts', 'lodash', 'resize-observer-polyfill'],
+	// external: ['echarts', 'lodash', 'resize-observer-polyfill'],
 	plugins: [
 		resolve(),
 		commonjs(),
@@ -51,18 +50,15 @@ const baseConfig = {
 		babel({
 			exclude: 'node_modules/**'
 		}),
-		postcss({
-			preprocessor: (content, id) =>
-				new Promise((resolve, reject) => {
-					const result = sass.renderSync({ file: id });
-					resolve({ code: result.css.toString() });
-				}),
-			plugins: [autoprefixer, cssnano],
-			sourceMap: true,
-			extensions: ['.sass', '.scss', '.css'],
-			extract: `${config.buildDir}/hecharts.min.css` // 输出路径
+		// postcss({
+		// 	plugins: [autoprefixer, cssnano],
+		// 	sourceMap: true,
+		// 	extensions: ['.sass', '.scss', '.css'],
+		// 	extract: `${config.buildDir}/hecharts.min.css` // 输出路径
+		// }),
+		vue({
+			css: true
 		}),
-		vue(),
 		json({
 			exclude: ['node_modules/**']
 		}),

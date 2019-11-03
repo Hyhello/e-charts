@@ -39,21 +39,6 @@ import { warn } from '@/utils/debug';
 import mapList from './mapList.json';
 import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
 
-const oneOf = (target, list) => {
-	const temp = list.filter(item => item.value === target);
-	return temp.length;
-};
-
-// 全国市区，特殊后缀集合
-const specialCity = ['市', '盟', '自治州', '县', '区', '其他'];
-
-const specialInclude = name => {
-	return name.replace(
-		new RegExp(`(.*)(?<!${specialCity.join('|')})$`),
-		'$1市'
-	);
-};
-
 // 加载
 const reslove = (name, bool) => {
 	const isProvince = bool ? 'province/' : '';
@@ -62,12 +47,8 @@ const reslove = (name, bool) => {
 
 // 过滤
 const filterValue = name => {
-	try {
-		const map = mapList.filter(item => item.label === name)[0];
-		return map.value;
-	} catch (error) {
-		return specialInclude(name);
-	}
+	const map = mapList.filter(item => item.label === name)[0];
+	return map.value;
 };
 
 export default {
@@ -218,14 +199,10 @@ export default {
 			if (!json) {
 				return warn(`map matched fail ${name} not matched map`);
 			}
-			if (oneOf(json, mapList)) {
-				try {
-					json = reslove(json);
-				} catch (e) {
-					json = reslove(json, true);
-				}
-			} else {
-				json = require(`../map/json/${json}.json`);
+			try {
+				json = reslove(json);
+			} catch (e) {
+				json = reslove(json, true);
 			}
 			echarts.registerMap(name, json);
 		}

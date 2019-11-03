@@ -12,4 +12,9 @@ const install = function(Vue) {
 	Vue.component(ECharts.name, ECharts);
 };
 
+// window 部分
+if (typeof window !== 'undefined' && window.Vue) {
+	install(window.Vue);
+}
+
 export default install;
