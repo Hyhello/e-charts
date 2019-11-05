@@ -1,6 +1,6 @@
 {
 	"name": "h-echarts",
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"description": "基于vue的echarts组件",
 	"main": "lib/hecharts.min.js",
 	"files": [
@@ -15,7 +15,7 @@
 		"dev": "rollup -c build/rollup.dev.js --watch",
 		"lint-staged": "pretty-quick --staged",
 		"test": "jest --coverage",
-		"deploy": "npm publish"
+		"deploy": "yarn publish"
 	},
 	"keywords": [
 		"h-echarts",

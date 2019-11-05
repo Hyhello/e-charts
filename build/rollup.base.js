@@ -31,7 +31,7 @@ const baseConfig = {
 	input: 'src/index.js',
 	output: [
 		{
-			format: 'umd',
+			format: 'iife',
 			name: name,
 			file: pkg.main,
 			sourcemap: true,
